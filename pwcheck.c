@@ -6,7 +6,7 @@ typedef char poleCharu[VEL];
 
 void vypis_heslo(poleCharu vstup)
 {
-    for(int i = 0; vstup[i] != '\0'; i++)
+    for(int i = 1; vstup[i] != '\0'; i++)
     {
         putchar(vstup[i]);
     }
@@ -14,7 +14,7 @@ void vypis_heslo(poleCharu vstup)
 
 void resetuj_heslo(poleCharu *vstup)
 {
-    for(int i = 0; *vstup[i] != '\0'; i++)
+    for(int i = 1; *vstup[i] != '\0'; i++)
     {
         *vstup[i]=0;
     }
@@ -25,7 +25,7 @@ int main()
 {
     int vstupni_text;
     poleCharu heslo;
-    int index = 0;
+    int index = 1;
 
     while((vstupni_text = getchar()) != EOF)
     {
@@ -35,13 +35,13 @@ int main()
         {
             if(index>=VEL)
             {
-            index = -1;
             resetuj_heslo(&heslo);
+            index = 0;
             }
             else{
             vypis_heslo(heslo);
-            index = -1;
             resetuj_heslo(&heslo);
+            index = 0;
             }
         }
 	index++;        
